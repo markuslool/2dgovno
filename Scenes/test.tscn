@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://d0vnghhxcaqgv" path="res://Tilemaps/testtileset.tres" id="1_8od7v"]
 [ext_resource type="Texture2D" uid="uid://415empfgrbpg" path="res://Sprites/testplayer.png" id="1_lc1oi"]
+[ext_resource type="Script" uid="uid://b1ee30r23icn5" path="res://Scripts/player.gd" id="2_qc4db"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42oy1"]
 size = Vector2(26, 26)
@@ -15,8 +16,14 @@ tile_map_data = PackedByteArray("AAD/////AAABAAIAAAD//wAAAAAEAAIAAAD+/wEAAAADAAE
 tile_set = ExtResource("1_8od7v")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1857393693]
+z_index = 1
+position = Vector2(-16, 16)
+script = ExtResource("2_qc4db")
+speed = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1765043520]
+position = Vector2(-2, 0)
+zoom = Vector2(2, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=353699371]
 shape = SubResource("RectangleShape2D_42oy1")
