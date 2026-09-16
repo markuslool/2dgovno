@@ -32,3 +32,6 @@ project/assembly_name="Новый игровой проект"
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+scaling_3d/mode=5
+scaling_3d/mode.ios=5
+scaling_3d/mode.macos=5
