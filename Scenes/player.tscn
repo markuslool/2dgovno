@@ -1,0 +1,51 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://dp5koi11o81i4" path="res://Sprites/Sprite-0001.png" id="2_f1"]
+[ext_resource type="Texture2D" uid="uid://c4b1d4otx1xux" path="res://Sprites/Sprite-0002.png" id="3_f2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_morph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(18, 22)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+z_index = 10
+sprite_frames = SubResource("SpriteFrames_morph")
+animation = &"idle"
+autoplay = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -16)
+position_smoothing_enabled = true
